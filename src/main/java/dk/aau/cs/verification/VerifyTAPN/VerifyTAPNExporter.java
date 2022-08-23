@@ -87,6 +87,7 @@ public class VerifyTAPNExporter {
 		modelStream.append("<net id=\"" + model.name() + "\" type=\"P/T net\">\n");
 
         outputDeclarations(modelStream);
+        modelStream.append("<page> id=\"page0\"\n");
 
         for(TimedPlace p : model.places()) {
             outputPlace(p, modelStream, guiModel, mapping);
@@ -112,6 +113,7 @@ public class VerifyTAPNExporter {
             outputInhibitorArc(inhibArc, modelStream);
         }
 
+        modelStream.append("</page>\n");
         modelStream.append("</net>\n");
 		modelStream.append("</pnml>");
 		modelStream.close();
